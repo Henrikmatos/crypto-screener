@@ -3,7 +3,7 @@ import os
 from setuptools import setup, find_packages
 
 NAME = "crypto-screener"
-DESCRIPTION = "Application for calculating the ratings based on the indicators (SMA 20, SMA 50, SMA 200), oscillators (RSI) and volatility (ATRW%)."
+DESCRIPTION = "Application for calculating the ratings based on the indicators (SMA 20, SMA 50, SMA 200), oscillators (RSI) and volatility (ATRW%) for Phemex futures and Kucoin spot cryptocurrencies."
 AUTHOR = "Jiri"
 URL = ""
 VERSION = None
