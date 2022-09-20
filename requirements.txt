@@ -1,0 +1,6 @@
+requests==2.25.1
+pandas==1.4.2
+pandas-ta==0.3.14b
+openpyxl==3.0.9
+pyyaml==6.0
+ccxt==1.91.92
