@@ -14,8 +14,11 @@ class CryptoScreenerService:
     def download_and_calculate_values(self, assets: pd.DataFrame):
         result = pd.DataFrame()
 
+        logging.info("Start download and calculate values")
+
+        count_assets = assets.shape[0]
         for index, asset in assets.iterrows():
-            logging.info("Process asset - {}".format(asset["Asset"]))
+            logging.info("Process asset - {} ({}/{})".format(asset["Asset"], index + 1, count_assets))
             try:
                 exchange = "Phemex" if asset["PhemexFutures"] else "Kucoin"
                 ohlc_daily = self.data_downloader.download_daily_ohlc(exchange, asset["Asset"])
@@ -39,6 +42,8 @@ class CryptoScreenerService:
             except:
                 logging.exception("Problem with compute statistic or rating on coin {}".format(asset["Asset"]))
                 result = pd.concat([result, pd.DataFrame([asset])])
+
+        logging.info("Finished download and calculate values")
 
         return result
 
